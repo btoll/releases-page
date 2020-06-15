@@ -120,7 +120,7 @@ def getContent(url):
 
 def build_page(channels):
     html = getContent(html_tpl).replace("{styles}", getContent(styles_url))
-    html = html.replace("{stable}", "".join(channels["stable"])).replace("{beta}", "".join(channels["beta"]))
+    html = html.replace("{stable}", "".join(channels["stable"])).replace("{beta}", "".join(channels["beta"])).replace("{indexer}", "".join(channels["indexer"]))
     sys.stdout.write(html)
 
 def get_furl(release_files, fname, skey):
@@ -134,7 +134,7 @@ def main():
     s3 = boto3.client("s3")
     channels = {}
 
-    for channel in ["stable", "beta"]:
+    for channel in ["stable", "beta", "indexer"]:
         staging_response = s3.list_objects_v2(Bucket=staging_bucket, Prefix="releases/" + channel + "/", MaxKeys=100)
         release_sets = get_stage_release_set(staging_response)
         releases_response = s3.list_objects_v2(Bucket=releases_bucket)

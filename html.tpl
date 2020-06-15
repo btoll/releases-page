@@ -15,15 +15,25 @@
 
 <hr>
 
-<h2>Stable releases</h2>
+<section id="algod">
+<h1>algod</h1>
+<h2>stable</h2>
 <table><tr><th>File</th><th>Bytes</th><th>GPG Signature</th></tr>
 {stable}
 </table>
 
-<h2>Beta releases</h2>
+<h2>beta</h2>
 <table><tr><th>File</th><th>Bytes</th><th>GPG Signature</th></tr>
 {beta}
 </table>
+</section>
+
+<section id="indexer">
+<h1>Indexer releases</h1>
+<table><tr><th>File</th><th>Bytes</th><th>GPG Signature</th></tr>
+{indexer}
+</table>
+</section>
 
 </body>
 </html>
