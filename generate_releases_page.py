@@ -15,6 +15,7 @@ releases_bucket = "algorand-releases"
 releases_prefix = "https://releases.algorand.com/"
 html_tpl = "html.tpl"
 styles_url = "releases_page.css"
+tokens = ["stable", "beta", "indexer"]
 
 def get_stage_release_set(response):
     prefix = None
@@ -120,7 +121,10 @@ def getContent(url):
 
 def build_page(channels):
     html = getContent(html_tpl).replace("{styles}", getContent(styles_url))
-    html = html.replace("{stable}", "".join(channels["stable"])).replace("{beta}", "".join(channels["beta"])).replace("{indexer}", "".join(channels["indexer"]))
+
+    for n in tokens:
+        html = html.replace("".join(["{", n, "}"]), "".join(channels[n]))
+
     sys.stdout.write(html)
 
 def get_furl(release_files, fname, skey):
