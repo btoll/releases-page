@@ -171,7 +171,10 @@ def main():
                 table.append("".join(tbody))
 
             # Only add the spacer *after* every set.
-            table.append('<tbody><tr class="spacer"><td></td></tr></tbody>')
+            # It's not readily apparent to me why `indexer` would have a dict with a single
+            # item.  This needs additional investigation.
+            if len(files.items()) > 1:
+                table.append('<tbody><tr class="spacer"><td></td></tr></tbody>')
 
         channels[channel] = table
 

@@ -28,6 +28,8 @@
 </table>
 </section>
 
+<hr>
+
 <section id="indexer">
 <h1>Indexer releases</h1>
 <table><tr><th>File</th><th>Bytes</th><th>GPG Signature</th></tr>
