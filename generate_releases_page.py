@@ -177,6 +177,12 @@ def main():
             # Only add the spacer *after* every set.
             # It's not readily apparent to me why `indexer` would have a dict with a single
             # item.  This needs additional investigation.
+            #
+            # For instance, when creating the "indexer" table, the first line was empty b/c
+            # it added a spacer.  This was b/c there were two dicts and the first only
+            # contained one item, which was useless.
+            #
+            # For now, just ignore those dicts.
             if len(files.items()) > 1:
                 table.append('<tbody><tr class="spacer"><td></td></tr></tbody>')
 
